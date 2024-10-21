@@ -31,7 +31,7 @@ $gridSize = ceil(sqrt(count($cards)));
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find The Match - <?php echo $level; ?></title>
+    <title>Find The Pair - <?php echo $level; ?></title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -144,7 +144,7 @@ $gridSize = ceil(sqrt(count($cards)));
 <body>
     <div class="game-container">
         <h1>Find the matching Pair</h1>
-        <h2>Although you might not</h2>
+        <h2>Although you might not have one</h2>
         <div id="level">Level: <?php echo $level; ?></div>
         <div class="game-board">
             <?php foreach ($cards as $index => $card): ?>
