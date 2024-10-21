@@ -12,7 +12,7 @@ function generateCards($numPairs)
 }
 
 if (!isset($_SESSION['level'])) {
-    $_SESSION['level'] = 1;
+    $_SESSION['level'] = 5;
 }
 
 if (isset($_POST['action']) && $_POST['action'] == 'nextLevel') {
@@ -37,6 +37,8 @@ $gridSize = ceil(sqrt(count($cards)));
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
+            max-width: 100vw;
+            overflow-x: hidden;
             justify-content: space-between;
             align-items: center;
             height: 100vh;
@@ -49,7 +51,7 @@ $gridSize = ceil(sqrt(count($cards)));
         .game-container {
             text-align: center;
             background-color: #3d3d3d;
-            padding: 20px;
+            padding: 3vw;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         }
@@ -97,8 +99,8 @@ $gridSize = ceil(sqrt(count($cards)));
         }
 
         .card {
-            width: 80px;
-            height: 80px;
+            width: 2.5em;
+            height: 2.5em;
             background-color: #4b4b4b;
             border-radius: 10px;
             display: flex;
@@ -107,7 +109,7 @@ $gridSize = ceil(sqrt(count($cards)));
             font-size: 2em;
             color: #fff;
             cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease;
         }
 
         .card.flipped {
@@ -165,7 +167,7 @@ $gridSize = ceil(sqrt(count($cards)));
 <body>
     <nav>
     <h1>Find the matching Pair</h1>
-    <h2>Although you might not</h2>
+    <h2>Although you might not have one</h2>
     </nav>
     <div class="game-container">
         
