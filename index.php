@@ -19,7 +19,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'nextLevel') {
     $_SESSION['level']++;
 }
 
-$level = $_SESSION['level'];
+$level = 10;
 $numPairs = min(4 + $level, 10);
 $cards = generateCards($numPairs);
 $gridSize = ceil(sqrt(count($cards)));
@@ -45,7 +45,7 @@ $gridSize = ceil(sqrt(count($cards)));
             margin: 0;
             background-color: #2d2d2d;
             color: #f0f0f0;
-            
+
         }
 
         .game-container {
@@ -56,7 +56,8 @@ $gridSize = ceil(sqrt(count($cards)));
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             margin: 0;
             font-weight: normal;
         }
@@ -65,30 +66,34 @@ $gridSize = ceil(sqrt(count($cards)));
             font-size: 2em;
             color: #f0f0f0;
         }
-        a{
-            color:#fdfdfd
+
+        a {
+            color: #fdfdfd
         }
+
         h2 {
             font-size: 1em;
             font-weight: 100;
             color: #f5b227;
         }
-        footer{
+
+        footer {
             display: flex;
             width: 100%;
             justify-content: center;
             align-items: center;
-            padding-bottom:5vh;
-          
+            padding-bottom: 5vh;
+
         }
-        nav{
-            display:flex;
+
+        nav {
+            display: flex;
             width: 100%;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding-top: 5vh;
-          
+
         }
 
         .game-board {
@@ -99,8 +104,8 @@ $gridSize = ceil(sqrt(count($cards)));
         }
 
         .card {
+            aspect-ratio: 1/1;
             width: 2.5em;
-            height: 2.5em;
             background-color: #4b4b4b;
             border-radius: 10px;
             display: flex;
@@ -110,6 +115,52 @@ $gridSize = ceil(sqrt(count($cards)));
             color: #fff;
             cursor: pointer;
             transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+        }
+        @media only screen and (max-device-width: 1000px) {
+            .card {
+                aspect-ratio: 1/1;
+                width: 3em;
+                background-color: #4b4b4b;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2em;
+                color: #fff;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+            }
+        }
+        @media only screen and (max-device-width: 600px) {
+            .card {
+                aspect-ratio: 1/1;
+                width: 2em;
+                background-color: #4b4b4b;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2em;
+                color: #fff;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+            }
+        }
+
+        @media only screen and (max-device-width: 400px) {
+            .card {
+                aspect-ratio: 1/1;
+                width: 1.5em;
+                background-color: #4b4b4b;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2em;
+                color: #fff;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+            }
         }
 
         .card.flipped {
@@ -127,20 +178,54 @@ $gridSize = ceil(sqrt(count($cards)));
         }
 
         @keyframes shake {
-            0% { transform: translate(1px, 1px) rotate(0deg); }
-            10% { transform: translate(-1px, -2px) rotate(-1deg); }
-            20% { transform: translate(-3px, 0px) rotate(1deg); }
-            30% { transform: translate(3px, 2px) rotate(0deg); }
-            40% { transform: translate(1px, -1px) rotate(1deg); }
-            50% { transform: translate(-1px, 2px) rotate(-1deg); }
-            60% { transform: translate(-3px, 1px) rotate(0deg); }
-            70% { transform: translate(3px, 1px) rotate(-1deg); }
-            80% { transform: translate(-1px, -1px) rotate(1deg); }
-            90% { transform: translate(1px, 2px) rotate(0deg); }
-            100% { transform: translate(1px, -2px) rotate(-1deg); }
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
         }
 
-        #moves, #timer, #level {
+        #moves,
+        #timer,
+        #level {
             margin-top: 20px;
             font-size: 1.2em;
             color: #f0f0f0;
@@ -166,11 +251,11 @@ $gridSize = ceil(sqrt(count($cards)));
 
 <body>
     <nav>
-    <h1>Find the matching Pair</h1>
-    <h2>Although you might not have one</h2>
+        <h1>Find the matching Pair</h1>
+        <h2>Although you might not have one</h2>
     </nav>
     <div class="game-container">
-        
+
         <div id="level">Level: <?php echo $level; ?></div>
         <div class="game-board">
             <?php foreach ($cards as $index => $card): ?>
@@ -268,6 +353,7 @@ $gridSize = ceil(sqrt(count($cards)));
             });
 
             document.getElementById('nextLevel').addEventListener('click', () => {
+
                 fetch('index.php', {
                     method: 'POST',
                     headers: {
