@@ -12,14 +12,14 @@ function generateCards($numPairs)
 }
 
 if (!isset($_SESSION['level'])) {
-    $_SESSION['level'] = 5;
+    $_SESSION['level'] = 1;
 }
 
 if (isset($_POST['action']) && $_POST['action'] == 'nextLevel') {
     $_SESSION['level']++;
 }
 
-$level = 10;
+$level = $_SESSION['level'];
 $numPairs = min(4 + $level, 10);
 $cards = generateCards($numPairs);
 $gridSize = ceil(sqrt(count($cards)));
