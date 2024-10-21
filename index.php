@@ -31,17 +31,19 @@ $gridSize = ceil(sqrt(count($cards)));
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find The Pair - <?php echo $level; ?></title>
+    <title>CLICKO - STAGE: <?php echo $level; ?></title>
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #2d2d2d;
             color: #f0f0f0;
+            
         }
 
         .game-container {
@@ -61,11 +63,30 @@ $gridSize = ceil(sqrt(count($cards)));
             font-size: 2em;
             color: #f0f0f0;
         }
-
+        a{
+            color:#fdfdfd
+        }
         h2 {
             font-size: 1em;
             font-weight: 100;
             color: #f5b227;
+        }
+        footer{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding-bottom:5vh;
+          
+        }
+        nav{
+            display:flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 5vh;
+          
         }
 
         .game-board {
@@ -142,9 +163,12 @@ $gridSize = ceil(sqrt(count($cards)));
 </head>
 
 <body>
+    <nav>
+    <h1>Find the matching Pair</h1>
+    <h2>Although you might not</h2>
+    </nav>
     <div class="game-container">
-        <h1>Find the matching Pair</h1>
-        <h2>Although you might not have one</h2>
+        
         <div id="level">Level: <?php echo $level; ?></div>
         <div class="game-board">
             <?php foreach ($cards as $index => $card): ?>
@@ -155,6 +179,7 @@ $gridSize = ceil(sqrt(count($cards)));
         <div id="timer">Time: 0s</div>
         <button id="nextLevel">Next Level</button>
     </div>
+    <footer><a href="https://www.adithyakrishnan.com?ref=findthepair">©fal3n-4ngel</a></footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
